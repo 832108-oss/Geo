@@ -1,0 +1,325 @@
+:root {
+  --bg-pure-black: #000000;
+  --bg-deep-navy: #02060d;
+  --card-surface: #070e19;
+  --card-border: rgba(255, 255, 255, 0.05);
+  --text-white: #f5f5f7;
+  --text-grey: #86868b;
+  --pro-cyan: #00d2ff;
+  --pro-blue: #0066cc;
+  --game-correct: #30d158;
+  --game-wrong: #ff453a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-pure-black);
+  color: var(--text-white);
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Navigation Header */
+.apple-nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 48px;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+  z-index: 9999;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 24px;
+}
+
+.nav-content .logo { font-weight: 600; font-size: 14px; letter-spacing: -0.01em; }
+.nav-links a { color: var(--text-white); text-decoration: none; font-size: 12px; opacity: 0.65; margin-left: 24px; }
+
+/* Hero Presentation */
+.hero-section {
+  min-height: 52vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 110px 24px 40px 24px;
+  background: radial-gradient(circle at center, #021630 0%, #000000 85%);
+}
+
+.hero-wrapper { max-width: 850px; }
+.pill-accent { font-size: 11px; font-weight: 600; text-transform: uppercase; color: var(--pro-cyan); letter-spacing: 0.16em; display: inline-block; margin-bottom: 20px; border: 1px solid rgba(0, 210, 255, 0.25); padding: 5px 14px; border-radius: 20px; background: rgba(0, 210, 255, 0.03); }
+.headline-main { font-size: 74px; font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; margin: 0 0 20px 0; background: linear-gradient(180deg, #ffffff 40%, #586b82 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-intro { font-size: 20px; line-height: 1.5; color: var(--text-grey); max-width: 720px; margin: 0 auto; }
+
+/* Sticky Switcher Menu Bar with Sliding Box Wrapper */
+.switcher-container {
+  background-color: var(--bg-deep-navy);
+  padding: 0 24px 100px 24px;
+}
+
+.sticky-pill-wrapper {
+  position: sticky;
+  top: 48px;
+  background-color: var(--bg-deep-navy);
+  padding: 30px 0;
+  z-index: 900;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.apple-pill-tabs {
+  position: relative;
+  background: #0d0d11;
+  padding: 5px;
+  border-radius: 30px;
+  display: inline-flex;
+  gap: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* THE SMOOTH HARDWARE ACCELERATED ACTIVE PILL SLIDER */
+.nav-slider {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  height: calc(100% - 10px);
+  background: var(--text-white);
+  border-radius: 25px;
+  z-index: 1;
+  pointer-events: none;
+  transition: transform 0.38s cubic-bezier(0.25, 1, 0.5, 1), width 0.38s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tab-btn {
+  position: relative;
+  z-index: 2;
+  background: transparent;
+  border: none;
+  color: var(--text-grey);
+  font-size: 13.5px;
+  font-weight: 500;
+  padding: 9px 24px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: color 0.25s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.tab-btn:hover { color: var(--text-white); }
+.tab-btn.active {
+  color: var(--bg-pure-black);
+  font-weight: 600;
+}
+
+/* Bento Grid Architecture */
+.zone-block { max-width: 1200px; margin: 40px auto 0 auto; }
+.zone-header { margin-bottom: 40px; max-width: 900px; border-left: 2px solid var(--pro-cyan); padding-left: 24px; }
+.serial-number { font-size: 11px; font-weight: 600; color: var(--text-grey); letter-spacing: 0.12em; display: block; margin-bottom: 10px; }
+.zone-header h2 { font-size: 42px; font-weight: 700; margin: 0 0 12px 0; letter-spacing: -0.01em; }
+.zone-summary { font-size: 18px; line-height: 1.55; color: var(--text-grey); margin: 0; }
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: minmax(260px, auto);
+  gap: 24px;
+}
+
+.bento-card {
+  background-color: var(--card-surface);
+  border: 1px solid var(--card-border);
+  border-radius: 28px;
+  padding: 36px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease;
+}
+.bento-card:hover { border-color: rgba(0, 210, 255, 0.2); }
+
+.bento-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1); }
+.bento-card:hover img { transform: scale(1.025); }
+
+.bento-card.large-media { grid-column: span 2; grid-row: span 2; padding: 0; }
+.bento-card.large-media img { opacity: 0.55; }
+.bento-card.visual-break-card { grid-column: span 1; grid-row: span 1; padding: 0; }
+.bento-card.side-media-card { grid-column: span 1; grid-row: span 2; padding: 0; }
+
+/* DYNAMIC METRIC & HUB CONTAINERS */
+.dynamic-map-card {
+  grid-column: span 1;
+  grid-row: span 2;
+  background: linear-gradient(180deg, #071221 0%, #030a14 100%);
+  display: flex;
+  flex-direction: column;
+}
+
+.hub-state {
+  display: none;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.hub-state.active {
+  display: flex;
+}
+
+.map-frame-wrapper {
+  width: 100%;
+  flex-grow: 1;
+  margin: 14px 0;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  position: relative;
+  min-height: 280px;
+}
+
+.map-frame-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  filter: invert(90%) hue-rotate(180deg) contrast(110%) opacity(0.85);
+}
+
+/* GAMEPLAY LOGIC BOXES */
+.game-container {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.game-prompt {
+  font-size: 15px;
+  line-height: 1.45;
+  margin: 0 0 16px 0;
+  color: var(--text-white);
+  font-weight: 500;
+}
+
+.options-vertical-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-node-btn {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 12px;
+  padding: 12px 16px;
+  color: var(--text-white);
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.option-node-btn:hover {
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.option-node-btn.correct {
+  background: rgba(48, 209, 88, 0.15) !important;
+  border-color: var(--game-correct) !important;
+  color: var(--game-correct);
+  font-weight: 600;
+}
+
+.option-node-btn.wrong {
+  background: rgba(255, 69, 58, 0.15) !important;
+  border-color: var(--game-wrong) !important;
+  color: var(--game-wrong);
+}
+
+.game-reply {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 10px 14px;
+  border-radius: 10px;
+  animation: iphonePopCard 0.3s ease;
+}
+
+.game-reply.reveal-correct { background: rgba(48, 209, 88, 0.08); color: #cbdccb; border: 1px solid rgba(48, 209, 88, 0.2); }
+.game-reply.reveal-wrong { background: rgba(255, 69, 58, 0.08); color: #eccbc9; border: 1px solid rgba(255, 69, 58, 0.2); }
+.game-reply.hide { display: none; }
+
+.game-launch-btn, .game-exit-btn {
+  background: var(--text-white);
+  color: var(--bg-pure-black);
+  border: none;
+  border-radius: 14px;
+  padding: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: center;
+  transition: opacity 0.2s, transform 0.2s;
+  width: 100%;
+}
+
+.game-launch-btn:hover, .game-exit-btn:hover { opacity: 0.9; transform: translateY(-1px); }
+.game-exit-btn {
+  background: transparent;
+  color: var(--text-grey);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  margin-top: auto;
+}
+.game-exit-btn:hover { color: var(--text-white); background: rgba(255, 255, 255, 0.03); }
+
+/* Typography Card Overlays */
+.card-overlay { position: absolute; bottom: 0; left: 0; width: 100%; padding: 40px; background: linear-gradient(0deg, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0) 100%); z-index: 2; }
+.card-overlay .tag { font-size: 11px; text-transform: uppercase; color: var(--pro-cyan); letter-spacing: 0.1em; font-weight: 600; }
+.card-overlay h3 { font-size: 28px; margin: 6px 0 0 0; font-weight: 600; letter-spacing: -0.01em; }
+
+.metric-card { display: flex; flex-direction: column; justify-content: space-between; background: linear-gradient(150deg, #050f1d, #081221); }
+.metric-title { font-size: 11px; font-weight: 600; color: var(--text-grey); letter-spacing: 0.06em; text-transform: uppercase; }
+.big-number { font-size: 56px; font-weight: 700; margin: 10px 0; color: var(--text-white); background: linear-gradient(180deg, #fff, #99aabf); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.metric-desc { font-size: 14px; line-height: 1.45; color: var(--text-grey); margin: 0; }
+
+.detail-text { grid-column: span 1; display: flex; flex-direction: column; }
+.bento-card.highlight-card { grid-column: span 2; background: linear-gradient(150deg, #03162b, #070e19); border: 1px solid rgba(0, 210, 255, 0.18); }
+.spec-label { font-size: 11px; font-weight: 600; color: var(--pro-cyan); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 12px; }
+.detail-text h3 { font-size: 22px; font-weight: 600; margin: 0 0 12px 0; }
+.detail-text p { font-size: 14px; line-height: 1.6; color: var(--text-grey); margin: 0; }
+
+/* APPLE POP CARD LOAD EFFECT */
+.apple-pop-effect { animation: iphonePopCard 0.6s cubic-bezier(0.25, 1, 0.5, 1) both; }
+@keyframes iphonePopCard {
+  0% { opacity: 0; transform: scale(0.96) translateY(12px); filter: blur(4px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); filter: blur(0); }
+}
+
+/* Adaptive Media Breakpoints Layouts */
+@media (max-width: 1100px) {
+  .bento-grid { grid-template-columns: repeat(2, 1fr); }
+  .bento-card.highlight-card, .bento-card.large-media { grid-column: span 2; }
+  .bento-card.side-media-card, .dynamic-map-card { grid-column: span 1; }
+  .headline-main { font-size: 54px; }
+}
+@media (max-width: 768px) {
+  .bento-grid { grid-template-columns: 1fr; grid-auto-rows: auto; }
+  .bento-card, .bento-card.highlight-card, .bento-card.large-media, .bento-card.side-media-card, .dynamic-map-card { grid-column: span 1; grid-row: span 1; }
+  .dynamic-map-card { min-height: 480px; }
+  .headline-main { font-size: 40px; }
+  .hero-intro { font-size: 18px; }
+}

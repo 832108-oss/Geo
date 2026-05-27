@@ -1,0 +1,110 @@
+<nav class="apple-nav">
+  <div class="nav-content">
+    <span class="logo">🌐 Blue Zones Archive</span>
+    <div class="nav-links">
+      <a href="#hero">Overview</a>
+      <a href="#specs-section">Explore Hotspots</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+  <section id="hero" class="hero-section">
+    <div class="hero-wrapper">
+      <span class="pill-accent animate-up">Lessons from the World's Elders</span>
+      <h1 class="headline-main animate-up">Blue Zones.<br>The Geography of Longevity.</h1>
+      <p class="hero-intro animate-up">Take a look at the environments, everyday eating habits, and deep community bonds that help people live vibrant, active lives well past their hundredth birthdays.</p>
+    </div>
+  </section>
+
+  <section id="specs-section" class="switcher-container">
+    <div class="sticky-pill-wrapper">
+      <div class="apple-pill-tabs" id="pill-tabs-container">
+        <div class="nav-slider" id="active-pill-slider"></div>
+        
+        <button class="tab-btn active" onclick="switchProZone(this, 'okinawa')">Okinawa</button>
+        <button class="tab-btn" onclick="switchProZone(this, 'sardinia')">Sardinia</button>
+        <button class="tab-btn" onclick="switchProZone(this, 'nicoya')">Nicoya</button>
+        <button class="tab-btn" onclick="switchProZone(this, 'ikaria')">Ikaria</button>
+        <button class="tab-btn" onclick="switchProZone(this, 'loma')">Loma Linda</button>
+      </div>
+    </div>
+
+    <div id="pro-bento-viewport" class="zone-block apple-pop-effect">
+      <div class="zone-header">
+        <span id="spec-serial" class="serial-number">EXPLORING SYSTEM 01 // EAST ASIA</span>
+        <h2 id="spec-title">Okinawa Archipelago, Japan</h2>
+        <p id="spec-summary" class="zone-summary">A beautiful group of islands where women live longer than almost anywhere else on Earth, driven by a lifelong sense of purpose and deep-rooted neighborhood friendships.</p>
+      </div>
+
+      <div class="bento-grid">
+        <div class="bento-card large-media">
+          <img id="spec-image-1" src="https://images.unsplash.com/photo-1542051841857-5f90071e7989?auto=format&fit=crop&w=1200&q=80" alt="Aerial Landscape View">
+          <div class="card-overlay">
+            <span class="tag">Landscape Perspective</span>
+            <h3 id="spec-env">Subtropical Coral Reef Ecosystem</h3>
+          </div>
+        </div>
+
+        <div class="bento-card dynamic-map-card" id="interactive-hub-card">
+          <div id="map-view-state" class="hub-state active">
+            <span class="spec-label">Geographic Location</span>
+            <div class="map-frame-wrapper">
+              <iframe id="spec-map-frame" src="about:blank" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+            <button class="game-launch-btn" onclick="startMiniGame()">🎮 Play Zone Challenge</button>
+          </div>
+
+          <div id="game-view-state" class="hub-state">
+            <span class="spec-label">Field Challenge Game</span>
+            <div class="game-container">
+              <p id="game-question" class="game-prompt">Loading challenge data...</p>
+              <div id="game-options-box" class="options-vertical-stack">
+                </div>
+              <div id="game-feedback-pane" class="game-reply hide"></div>
+            </div>
+            <button class="game-exit-btn" onclick="exitMiniGame()">↩ Back to Map</button>
+          </div>
+        </div>
+
+        <div class="bento-card metric-card">
+          <span class="metric-title" id="spec-metric1-title">Centenarian Frequency</span>
+          <div id="spec-stat1" class="big-number">68 / 100k</div>
+          <p id="spec-stat1-desc" class="metric-desc">Out of every 100,000 residents, about 68 reach the age of 100—which is roughly triple the average found in modern industrialized nations.</p>
+        </div>
+
+        <div class="bento-card metric-card">
+          <span class="metric-title" id="spec-metric2-title">Cardiovascular Variance</span>
+          <div id="spec-stat2" class="big-number">-80%</div>
+          <p id="spec-stat2-desc" class="metric-desc">Long-term studies show a massive drop in strokes, blocked arteries, and sudden heart complications compared to Western countries.</p>
+        </div>
+
+        <div class="bento-card visual-break-card">
+          <img id="spec-image-2" src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?auto=format&fit=crop&w=1200&q=80" alt="High Angle Settlement Overview">
+        </div>
+
+        <div class="bento-card detail-text highlight-card">
+          <span class="spec-label">Nutritional Architecture</span>
+          <h3 id="spec-nut-title">Caloric Restriction & Purple Phytochemicals</h3>
+          <p id="spec-nut-body">Traditional Okinawan meals follow an intentional approach, keeping proteins light and healthy carbohydrates high to give the body stable, clean energy. The star of the table is the sweet, vibrant Beni Imo (purple sweet potato), which makes up about 67% of what they eat daily. It is packed with anthocyanins—powerful, natural antioxidants that keep blood vessels young and healthy. They balance this out with Goya (bitter melon), a staple known for supporting natural insulin sensitivity and healthy blood sugars.</p>
+        </div>
+
+        <div class="bento-card side-media-card">
+          <img id="spec-image-3" src="https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&q=80" alt="Regional Flora / Cultural Architecture">
+        </div>
+
+        <div class="bento-card detail-text">
+          <span class="spec-label" id="spec-label-psych">Psychosocial Framework</span>
+          <h3 id="spec-psych-title">The Ikigai Neurological Buffer</h3>
+          <p id="spec-psych-body">In Okinawa, there is no word for retirement. Instead, people focus on their Ikigai—the reason they look forward to waking up every morning. This mindset gives elders a clear purpose, keeping stress hormones low and mental focus sharp. By staying active as community leaders, local crafters, and family storytellers, they remain deeply valued, sharp, and protected against cognitive decline.</p>
+        </div>
+
+        <div class="bento-card detail-text">
+          <span class="spec-label" id="spec-label-soc">Societal Contracts</span>
+          <h3 id="spec-soc-title">The Moai Assistance Engine</h3>
+          <p id="spec-soc-body">Formed in early childhood, a Moai is a lifelong circle of five close friends who promise to stand by each other forever. They meet up regularly to talk, share advice, and even pool money together to help a member through tough times. This absolute social safety net makes sure no one ever feels lonely or abandoned, keeping blood pressure steady and hearts resilient across decades of life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
